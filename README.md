@@ -40,11 +40,10 @@ The final output from the phishing detector is structured as:
 
 # Installation
 ## Clone the repository
-'''bash
-- git clone https://github.com/H1548/TransformerModel-PhishingDetector.git,
-- cd TransformerModel-PhishingDetector
+<pre> '''bash git clone https://github.com/H1548/TransformerModel-PhishingDetector.git ''' </pre>
+<pre> '''bash cd TransformerModel-PhishingDetector '''</pre>
 
 ## Install dependencies
-pip install -r requirements.txt
+<pre> '''bash pip install -r requirements.txt ''' </pre>
 
 # Usage
