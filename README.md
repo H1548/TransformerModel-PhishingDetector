@@ -44,6 +44,6 @@ The final output from the phishing detector is structured as:
 <pre> '''bash cd TransformerModel-PhishingDetector'''</pre>
 
 ## Install dependencies
-<pre> '''bash pip install -r requirements.txt''' </pre>
+<pre>pip install -r requirements.txt</pre>
 
 # Usage
