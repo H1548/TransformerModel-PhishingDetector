@@ -40,10 +40,20 @@ The final output from the phishing detector is structured as:
 
 # Installation
 ## Clone the repository
-<pre> '''bash git clone https://github.com/H1548/TransformerModel-PhishingDetector.git''' </pre>
-<pre> '''bash cd TransformerModel-PhishingDetector'''</pre>
+<pre>bash git clone https://github.com/H1548/TransformerModel-PhishingDetector.git</pre>
+<pre>bash cd TransformerModel-PhishingDetector</pre>
 
 ## Install dependencies
 <pre>pip install -r requirements.txt</pre>
 
 # Usage
+
+## Pretrain Transformer
+<pre>python pretrainingloop.py</pre>
+
+## Generate synthetic Emails
+<pre>cd Dataset</pre>
+<pre>python generate_emails.py --out emails.csv --per-label 500 --seed 1337</pre>
+Note: Script was made entirely by GPT 5 for the generation of the emails. /n 
+
+'--per-label' defines how many emails you want generated per-label so 500 = 500 * 9 = 4500 total emails in dataset

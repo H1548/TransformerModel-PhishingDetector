@@ -22,7 +22,7 @@ n_embd = 576
 num_heads = 9
 hidden = n_embd * 4
 dropout = 0.2
-num_classes = 12
+num_classes = 9
 
 
 class Head(nn.Module):

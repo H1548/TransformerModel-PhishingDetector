@@ -135,3 +135,19 @@ def calculate_metrics(model, pad_token, accuracy_score, f1_score, recall_score, 
     out['accuracy'], out['f1'], out['recall'], out['precision'] = accuracy, f1, recall, precision
     model.train()
     return out
+
+def get_testbatch(data, ix, block_size, pad_token):
+
+    x, y = [], []
+
+    for i in ix:
+        input_i, output_i = data[i]
+        pad_input_i = pad_sequence(input_i, block_size,pad_token)
+        x.append(torch.tensor(pad_input_i, dtype=torch.long))
+        y.append(torch.tensor(output_i, dtype = torch.long))
+        
+
+    x = torch.stack(x).to(device)
+    y = torch.stack(y).to(device)
+
+    return x, y

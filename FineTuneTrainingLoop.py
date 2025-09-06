@@ -28,7 +28,7 @@ hold_steps  = 200000
 max_iters = 300000
 eval_iters = 500
 
-checkpoint = torch.load('MultiFineModelCheckpoint/checkpoint_epoch_260000.tar')
+checkpoint = torch.load('ImprovedPreBest2/BestModel.tar')
 model.load_state_dict(checkpoint['model_state_dict'])
 
 # model_dict = model.state_dict()
