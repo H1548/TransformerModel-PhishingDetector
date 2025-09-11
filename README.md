@@ -54,6 +54,10 @@ The final output from the phishing detector is structured as:
 ## Generate synthetic Emails
 <pre>cd Dataset</pre>
 <pre>python generate_emails.py --out emails.csv --per-label 500 --seed 1337</pre>
-Note: Script was made entirely by GPT 5 for the generation of the emails. /n 
-
+Note: Script was made entirely by GPT 5 for the generation of the emails.
 '--per-label' defines how many emails you want generated per-label so 500 = 500 * 9 = 4500 total emails in dataset
+
+## Finetune model 
+<pre>python FineTuneTrainingLoop.py</pre>
+
+## 
