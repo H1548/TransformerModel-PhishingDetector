@@ -116,13 +116,13 @@ for i in range(cm.shape[0]):
 plt.ylabel("True label")
 plt.xlabel("Predicted label")
 plt.tight_layout()
-plt.savefig("Results-DiffScript2/confusion_matrix.png")
-cm_df.to_csv("Results-DiffScript2/confusion_matrix.csv")
+plt.savefig("Results/confusion_matrix.png")
+cm_df.to_csv("Results/confusion_matrix.csv")
 
 report_dict = classification_report(y_true, y_pred, output_dict=True, digits=4)
 df = pd.DataFrame(report_dict).transpose()
-df.to_csv("Results-DiffScript2/classification_report.csv", index=True)
-df.to_latex('Results-DiffScript2/report_table.tex')
+df.to_csv("Results/classification_report.csv", index=True)
+
 
 
 
