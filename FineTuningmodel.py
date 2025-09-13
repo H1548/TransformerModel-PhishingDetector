@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import re
 import os
 import random
-import sentencepiece as spm
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
@@ -16,13 +15,27 @@ tokenize = Tokenizer.from_file("tokenizer.json")
 
 vocab_size = tokenize.get_vocab_size()
 
-batch_size = 54
-block_size = 200
-n_embd = 576
-num_heads = 9
+batch_size = 64
+block_size = 110
+n_embd = 768
+num_heads = 12
 hidden = n_embd * 4
-dropout = 0.2
+dropout = 0.3
 num_classes = 9
+
+label_map = {
+    'phishing-credential': 0,   
+    'phishing-payment': 1,      
+    'phishing-delivery': 2,
+    'phishing-techsupport': 3,
+    'phishing-job': 4,
+    'safe-work': 5,             
+    'safe-personal': 6,
+    'safe-marketing': 7,
+    'safe-transactional': 8,
+    }
+
+index_to_label = {v:k for k, v in label_map.items()}
 
 
 class Head(nn.Module):
@@ -119,3 +132,14 @@ class Transformer(nn.Module):
             targets = y
             loss = F.cross_entropy(logits,targets)
         return logits,loss
+    
+    def prompt(self, prompt, bos_token, eos_token,pad_sequence, pad_token, create_mask):
+        with torch.no_grad():
+            tok_x = [bos_token] + tokenize.encode(prompt).ids + [eos_token]
+            padded_x =pad_sequence(tok_x, block_size, pad_token)
+            x = torch.tensor(padded_x).unsqueeze(0).to(device)
+            mask = create_mask(x, pad_token)
+            logits,_ = self(x,mask)
+            preds = torch.argmax(logits, dim = 1)
+            out = index_to_label[preds.item()]
+        return out

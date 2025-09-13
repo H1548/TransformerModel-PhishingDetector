@@ -7,11 +7,10 @@ import math
 from tokenizers import Tokenizer
 from modelpretrain import Transformer
 
-
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 tokenize = Tokenizer.from_file("tokenizer.json")
 
 learning_rate = 6e-4
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
 num_layers = 10
 max_iters = 350000
 eval_iters = 500

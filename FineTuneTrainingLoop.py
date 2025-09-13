@@ -12,21 +12,21 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 tokenize = Tokenizer.from_file("tokenizer.json")
 
-num_layers = 8
+num_layers = 10
+batch_size = 64
+block_size = 110
+learning_rate = 4e-6
+checkpoint_num = 10000
+warmup_steps = 18000
+hold_steps  = 45000
+max_iters = 300000
+eval_iters = 500
+pad_token = tokenize.token_to_id('[PAD]')
+
 
 model = Transformer(num_layers)
 m = model.to(device)
 
-pad_token = tokenize.token_to_id('[PAD]')
-
-batch_size = 54
-block_size = 200
-learning_rate = 4e-6
-checkpoint_num = 10000
-warmup_steps = 24000
-hold_steps  = 200000
-max_iters = 300000
-eval_iters = 500
 
 checkpoint = torch.load('ImprovedPreBest2/BestModel.tar')
 model.load_state_dict(checkpoint['model_state_dict'])
