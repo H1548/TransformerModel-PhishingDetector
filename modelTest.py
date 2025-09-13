@@ -22,22 +22,17 @@ unk_token = tokenize.token_to_id('[UNK]')
 mask_token = tokenize.token_to_id('[MASK]')
 bos_token  = tokenize.token_to_id("[BOS]")
 eos_token = tokenize.token_to_id("[EOS]")
-mask_spread = 0.15
+
 
 batch_size = 50
 block_size = 110
 num_layers = 10
-n_embd = 768
-num_heads = 12
-hidden = n_embd * 4
-dropout = 0.2
-learning_rate = 4e-6
-max_iters = 300000
-eval_iters = 500
-checkpoint_num = 10000
-warmup_steps = 24000
-hold_steps  = 86000
-num_classes = 9
+
+
+
+
+
+
 
 label_map = {
     'phishing-credential': 0,   

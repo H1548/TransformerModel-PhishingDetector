@@ -3,7 +3,7 @@ import random
 from utils import tokenize_data
 
 
-def load_finedata(data_path):
+def load_testdata(data_path):
     df = pd.read_csv(data_path, index_col = None,skip_blank_lines = True)
     df.columns = ['email', 'label']
     df = df.dropna(subset=['label']).reset_index(drop=True)
