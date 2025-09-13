@@ -23,6 +23,8 @@ The classification classes are:
 - 'Safe-marketing': label for legitimate emails from businesses sell their services, 
 - 'Safe-transactional': label for legitimate emails for confirmed purchases made by the user, shipping updates or receipts
 
+Here is a link to Access the paper for this project: https://drive.google.com/file/d/1E94jcgYUzZwTG9ZIcLUlhHO1BbOIRHhw/view?usp=drive_link
+
 ## Output Structure
 When the final model is prompted with an input email, the model predicts a class, a function is then used in the prompt code to collect information from the 'advice.json' with respect to the predicted class. 
 The final output from the phishing detector is structured as:
@@ -86,20 +88,20 @@ Classification Report: [View](Images/classification_report.csv)
 ## Project Structure
 ```text
 .
-|-- Dataset/              # Datasets
-|-- Images/               # Images for README (confusion matrix, Classification Report)
-|-- Results/              # All the results after modeltest.py has run, goes into this folder 
-|-- Subprograms/          # code that extracts, cleans and splits the pretraining dataset
-|-- .gitignore            # ignores certain file types
-|-- FineTuneTrainingLoop.py  # Script that runs the fintuning phase of training
+|-- Dataset/                     # Datasets
+|-- Images/                      # Images for README (confusion matrix, Classification Report)
+|-- Results/                     # All the results after modeltest.py has run, goes into this folder 
+|-- Subprograms/                 # code that extracts, cleans and splits the pretraining dataset
+|-- .gitignore                   # ignores certain file types
+|-- FineTuneTrainingLoop.py      # Script that runs the fintuning phase of training
 |-- FineTuningmodel.py           # finetuned model's architecture
-|-- FinetuningDataloader.py           # Loads the data being used for finetuning
-|-- Prompter.py      # Script to prompt the fine-tuned transformer model
-|-- README.md             # Documentation
-|-- Tokenizer.py    # Script that use huggingface's tokenizer library to train a tokenizer on a dataset
-|-- modeltest.py    # Evaluate the model's performance
-|-- modelpretrain.py # script outlines model architecture for pretraining
-|-- pretrainingloop.py  # script runs pretraining 
-|-- test_dataloader.py # script loads the test data for usage
-|-- tokenizer.json # json file used for tokenization of data before being fed into the model
-|-- utils.py # Script that stores functions that are used outside of the 'main model' code
+|-- FinetuningDataloader.py      # Loads the data being used for finetuning
+|-- Prompter.py                  # Script to prompt the fine-tuned transformer model
+|-- README.md                    # Documentation
+|-- Tokenizer.py                 # Script that use huggingface's tokenizer library to train a tokenizer on a dataset
+|-- modeltest.py                 # Evaluate the model's performance
+|-- modelpretrain.py             # script outlines model architecture for pretraining
+|-- pretrainingloop.py           # script runs pretraining 
+|-- test_dataloader.py           # script loads the test data for usage
+|-- tokenizer.json               # json file used for tokenization of data before being fed into the model
+|-- utils.py                     # Script that stores functions that are used outside of the 'main model' code
