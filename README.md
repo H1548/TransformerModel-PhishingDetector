@@ -102,6 +102,7 @@ Classification Report: [View](Images/classification_report.csv)
 |-- modeltest.py                 # Evaluate the model's performance
 |-- modelpretrain.py             # script outlines model architecture for pretraining
 |-- pretrainingloop.py           # script runs pretraining 
+|-- requirements.txt             # Project Dependencies
 |-- test_dataloader.py           # script loads the test data for usage
 |-- tokenizer.json               # json file used for tokenization of data before being fed into the model
 |-- utils.py                     # Script that stores functions that are used outside of the 'main model' code
